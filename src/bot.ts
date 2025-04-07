@@ -20,6 +20,7 @@ export const client = new Client({
     GatewayIntentBits.GuildMessageReactions,
     GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.GuildExpressions,
+    GatewayIntentBits.GuildPresences,
   ],
 }) as CustomClient;
 

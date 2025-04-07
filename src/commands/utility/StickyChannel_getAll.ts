@@ -14,15 +14,15 @@ export default {
     .setDescription("Shows all sticky channels")
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
-  async execute(interaction: ChatInputCommandInteraction) {
+  async execute(interaction: ChatInputCommandInteraction): Promise<void> {
+    console.log("hit");
     const member = interaction.member;
     if (!member || !interaction.guild) return;
 
     await interaction.deferReply({ flags: "Ephemeral" });
+    const channel = interaction.channel as TextChannel;
 
     try {
-      const channel = interaction.channel as TextChannel;
-
       const allStickyChannelId = (await getAllStickyChannels()).map(
         (c) => c.channelId
       );
@@ -51,10 +51,9 @@ export default {
         .setDescription(stickyChannelsString)
         .setColor(Colors.DarkBlue);
 
-      await channel.send({ embeds: [embed] });
-
       await interaction.editReply({
         content: "Channels fetched successfully",
+        embeds: [embed],
       });
       return;
     } catch (error) {

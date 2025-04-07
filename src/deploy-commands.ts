@@ -1,7 +1,8 @@
-import { APIApplicationCommand, Client, REST, Routes } from "discord.js";
+import { APIApplicationCommand, REST, Routes } from "discord.js";
 import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
+import { client } from "./bot";
 
 const commands: APIApplicationCommand[] = [];
 const clientId = process.env.APP_ID;
@@ -33,12 +34,16 @@ for (const folder of commandFolders) {
   }
 }
 
+const rest = new REST().setToken(bot_token);
+
 // and deploy your commands!
-export default async (client: Client) => {
+export default async () => {
   try {
-    const rest = new REST().setToken(bot_token);
     for (const guild of client.guilds.cache.values()) {
       console.log(`Deploying commands to guild: ${guild.id}`);
+      console.log(
+        `Started refreshing ${commands.length} application (/) commands.`
+      );
 
       const data: APIApplicationCommand[] = (await rest.put(
         Routes.applicationGuildCommands(clientId, guild.id),
@@ -46,7 +51,7 @@ export default async (client: Client) => {
       )) as APIApplicationCommand[];
 
       console.log(
-        `Successfully registered ${data.length} commands for guild ${guild.id}`
+        `Successfully reloaded ${data.length} application (/) commands for guild ${guild.id}`
       );
     }
   } catch (error) {

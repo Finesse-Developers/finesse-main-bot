@@ -1,5 +1,5 @@
 {
-  "name": "@sush1sui/dc-bot-with-server-starter",
+  "name": "fns-main-bot",
   "version": "1.0.0",
   "description": "A Discord Bot with Express Server Starter Code",
   "bin": "./bin/cli.js",
