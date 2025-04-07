@@ -16,7 +16,12 @@ export default {
   once: false,
   async execute(message: Message) {
     try {
-      if (message.author.bot || !(message.member as GuildMember)) return;
+      if (
+        message.author.bot ||
+        message.author.id !== "712011923176030229" ||
+        !(message.member as GuildMember)
+      )
+        return;
 
       const stickyChannels = await getAllStickyChannels();
 

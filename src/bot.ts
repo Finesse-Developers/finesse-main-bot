@@ -1,4 +1,9 @@
-import { Client, Collection, GatewayIntentBits } from "discord.js";
+import {
+  ActivityType,
+  Client,
+  Collection,
+  GatewayIntentBits,
+} from "discord.js";
 import loadCommands from "./loadCommands";
 import loadEvents from "./loadEvents";
 
@@ -22,6 +27,18 @@ client.commands = new Collection();
 
 loadCommands(client);
 loadEvents(client);
+
+client.once("ready", () => {
+  client.user?.setPresence({
+    status: "online",
+    activities: [
+      {
+        name: "Do it with Finesse!",
+        type: ActivityType.Custom,
+      },
+    ],
+  });
+});
 
 client.login(process.env.bot_token);
 
