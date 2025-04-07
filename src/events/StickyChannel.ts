@@ -17,8 +17,7 @@ export default {
   async execute(message: Message) {
     try {
       if (
-        message.author.bot ||
-        message.author.id !== "712011923176030229" ||
+        (message.author.bot && message.author.id !== "712011923176030229") ||
         !(message.member as GuildMember)
       )
         return;
@@ -76,8 +75,6 @@ export default {
         );
 
         console.log(`Sent new sticky message in ${message.channel.name}`);
-      } else {
-        console.log("The message was not sent in a text channel.");
       }
     } catch (error) {
       console.error(`Failed to send embed message: ${error}`);

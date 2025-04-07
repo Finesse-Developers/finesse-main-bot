@@ -53,7 +53,7 @@ export default {
           kakClaimTimeoutMap.delete(userId);
           kakClaimIntervalMap.delete(userId);
         }
-      });
+      }, kakClaimTimer);
       kakClaimTimeoutMap.set(userId, timeoutId);
       kakClaimIntervalMap.set(userId, intervalId);
     }

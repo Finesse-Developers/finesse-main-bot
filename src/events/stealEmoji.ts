@@ -55,8 +55,6 @@ export default {
         // Upload the emoji to the server
         const newEmoji = await message.guild.emojis.create(emojiOptions);
 
-        console.log(newEmoji);
-
         // Respond to the user after the emoji is uploaded
         await message.reply(
           `Emoji has been successfully uploaded to the server: ${newEmoji.toString()}`

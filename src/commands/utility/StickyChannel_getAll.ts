@@ -15,7 +15,6 @@ export default {
     .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
   async execute(interaction: ChatInputCommandInteraction): Promise<void> {
-    console.log("hit");
     const member = interaction.member;
     if (!member || !interaction.guild) return;
 
