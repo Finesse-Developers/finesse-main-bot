@@ -4,8 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const commands: APIApplicationCommand[] = [];
-const clientId = process.env.app_id;
-const bot_token = process.env.bot_token;
+const clientId = process.env.APP_ID;
+const bot_token = process.env.BOT_TOKEN;
 
 if (!clientId || !bot_token) throw new Error("missing .env variables");
 

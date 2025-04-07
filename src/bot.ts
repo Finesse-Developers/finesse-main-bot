@@ -40,7 +40,7 @@ client.once("ready", () => {
   });
 });
 
-client.login(process.env.bot_token);
+client.login(process.env.BOT_TOKEN);
 
 // Handle unhandled promise rejections
 process.on("unhandledRejection", (error) => {
