@@ -11,7 +11,7 @@ export default {
   name: "messageCreate",
   async execute(message: Message) {
     if (
-      kakClaimCommands.includes(message.content.toLocaleLowerCase()) &&
+      kakClaimCommands.includes(message.content.toLowerCase()) &&
       message.channelId === mudaeChannelId
     ) {
       const userId = message.author.id;
