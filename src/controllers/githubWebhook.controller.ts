@@ -11,7 +11,7 @@ export const sendNotification = async (req: Request, res: Response) => {
     const openGraphImage = await getOpenGraphImage(commit.url);
 
     const discordChannel = client.channels.cache.get(
-      "1290538849570787403"
+      "1361899829982134433"
     ) as TextChannel;
     if (discordChannel) {
       const embed = new EmbedBuilder()
