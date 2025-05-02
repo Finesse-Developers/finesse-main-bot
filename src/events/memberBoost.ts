@@ -50,7 +50,7 @@ export default {
         });
 
         if (serverLogChannel) {
-          await boostChannel.send({
+          await serverLogChannel.send({
             content: `# HEY <@&1310186525606154340>s! ${newMember} HAS BOOSTED THE SERVER`,
           });
         }
