@@ -62,7 +62,9 @@ export async function checkSupporterStatus(guild: Guild) {
       )?.state;
 
       // Check if the custom status contains the supporter link
-      const includesSupporterLink = customStatus?.includes(supporterLink);
+      const includesSupporterLink =
+        customStatus?.includes(supporterLink) ||
+        exemptedUserIds.includes(member.id);
 
       // Check if the user already has the role
       const hasSupporterRole = member.roles.cache.has(supporterRoleId);
