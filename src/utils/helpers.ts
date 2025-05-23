@@ -49,6 +49,7 @@ export const SERVER_LOGS_CHANNEL_ID = "1292442914487795772";
 export const welcomeChannelId = "1292411347220435006";
 export const communityRoleId = "1292473360114122784";
 export const supporterRoleId = "1303924607555997776";
+export const supporterRoleId2 = "1312957178356699146";
 export const supporterLink = "discord.gg/finesseph";
 export const supporterChannelId = "1310442561126535179";
 

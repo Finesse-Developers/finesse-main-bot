@@ -117,6 +117,7 @@ export async function checkSupporterStatus(guild: Guild) {
         }
       } else if (!includesSupporterLink && hasSupporterRole) {
         await member.roles.remove(supporterRoleId);
+        await member.roles.remove("1312957178356699146"); // remove bio role if it exists
         console.log(`Removed supporter role from ${member.user.tag}`);
       }
     }
